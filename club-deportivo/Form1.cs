@@ -1,3 +1,8 @@
+using club_deportivo.Datos;
+using Org.BouncyCastle.Pqc.Crypto.Lms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Data;
+
 namespace club_deportivo
 {
     public partial class Form1 : Form
@@ -6,21 +11,32 @@ namespace club_deportivo
         {
             InitializeComponent();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUser.Text == "admin" && txtPass.Text == "admin")
-            { 
-            Form formulario = new Form2();
-            formulario.ShowDialog();
-            }else
+            DataTable tablaLogin = new DataTable(); // es la que recibe los datos desde el formulario
+            Datos.Usuarios dato = new Datos.Usuarios(); // variable que contiene todas las caracteristicas de la clase
+            tablaLogin = dato.Log_Usu(txtUser.Text, txtPass.Text);
+            if (tablaLogin.Rows.Count > 0)
             {
-                MessageBox.Show("Usuario o contraseña incorrectos", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // quiere decir que el resultado tiene 1 fila por lo que el usuario EXISTE
+                MessageBox.Show("Ingreso exitoso");
             }
-        
-    
-        
+            else
+            {
+                MessageBox.Show("Usuario y/o password incorrecto");
+            }
         }
+//        private void btnLogin_Click(object sender, EventArgs e)
+//        {
+//            if (txtUser.Text == "admin" && txtPass.Text == "admin")
+//            { 
+//            Form formulario = new Form2();
+//            formulario.ShowDialog();
+//            }else
+//            {
+//                MessageBox.Show("Usuario o contraseña incorrectos", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//            }
+//        }
 
         private void txtUser_Enter(object sender, EventArgs e)
         {
