@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 
 using MySql.Data.MySqlClient;
 
+
 namespace club_deportivo
 {
     public class Conexion
     {
         private string baseDatos;
-
         private string servidor;
         private string puerto;
         private string usuario;
         private string clave;
         private static Conexion? instancia = null;
-        private MySqlConnection? con = null;
 
         // Constructor privado para aplicar el patrón Singleton
         private Conexion()
         {
-            this.baseDatos = "club-deportivo";
+            this.baseDatos = "club_deportivo";
             this.servidor = "localhost";
             this.puerto = "3306";
             this.usuario = "root";
@@ -32,7 +31,7 @@ namespace club_deportivo
         // Método para crear la conexión
         public MySqlConnection CrearConexion()
         {
-            MySqlConnection? cadena = new MySqlConnection();
+            MySqlConnection cadena = new MySqlConnection();
 
             try
             {
@@ -53,7 +52,7 @@ namespace club_deportivo
         }
 
         // Método para obtener la instancia única (Singleton)
-        public static Conexion getInstancia()
+        public static Conexion GetInstancia()
         {
             if (instancia == null)
             {
@@ -63,3 +62,4 @@ namespace club_deportivo
         }
     }
 }
+

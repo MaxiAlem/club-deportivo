@@ -34,40 +34,44 @@
             textBox1 = new TextBox();
             button1 = new Button();
             label1 = new Label();
-            btnNuevoUser = new Button();
+            btnNuevoSocio = new Button();
             label2 = new Label();
             label3 = new Label();
-            textBox2 = new TextBox();
-            label4 = new Label();
+            txtNombre = new TextBox();
+            lblNombre = new Label();
             label5 = new Label();
-            textBox3 = new TextBox();
-            label6 = new Label();
+            txtApellido = new TextBox();
+            lblApellido = new Label();
             label7 = new Label();
-            textBox4 = new TextBox();
-            label8 = new Label();
+            txtTel = new TextBox();
+            lblDNI = new Label();
             label9 = new Label();
-            textBox5 = new TextBox();
-            label10 = new Label();
+            txtDNI = new TextBox();
+            lblTel = new Label();
             label11 = new Label();
             label12 = new Label();
             label13 = new Label();
+            label4 = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnLogout
             // 
+            btnLogout.BackColor = SystemColors.ButtonFace;
             btnLogout.Location = new Point(647, 415);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(141, 23);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Cerrar Sesión";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += BtnLogout_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(323, 257);
+            dataGridView1.Location = new Point(23, 218);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(386, 144);
             dataGridView1.TabIndex = 1;
@@ -75,7 +79,7 @@
             // lblBuscarUsuario
             // 
             lblBuscarUsuario.AutoSize = true;
-            lblBuscarUsuario.Location = new Point(394, 67);
+            lblBuscarUsuario.Location = new Point(78, 38);
             lblBuscarUsuario.Name = "lblBuscarUsuario";
             lblBuscarUsuario.Size = new Size(331, 15);
             lblBuscarUsuario.TabIndex = 2;
@@ -83,14 +87,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(394, 116);
+            textBox1.Location = new Point(78, 87);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(250, 23);
             textBox1.TabIndex = 3;
             // 
             // button1
             // 
-            button1.Location = new Point(650, 98);
+            button1.Location = new Point(334, 69);
             button1.Name = "button1";
             button1.Size = new Size(75, 41);
             button1.TabIndex = 4;
@@ -100,131 +104,133 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(394, 28);
+            label1.Location = new Point(78, -1);
             label1.Name = "label1";
             label1.Size = new Size(0, 15);
             label1.TabIndex = 5;
             // 
-            // btnNuevoUser
+            // btnNuevoSocio
             // 
-            btnNuevoUser.Location = new Point(56, 334);
-            btnNuevoUser.Name = "btnNuevoUser";
-            btnNuevoUser.Size = new Size(182, 67);
-            btnNuevoUser.TabIndex = 6;
-            btnNuevoUser.Text = "Nuevo User";
-            btnNuevoUser.UseVisualStyleBackColor = true;
+            btnNuevoSocio.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNuevoSocio.Location = new Point(43, 313);
+            btnNuevoSocio.Name = "btnNuevoSocio";
+            btnNuevoSocio.Size = new Size(182, 56);
+            btnNuevoSocio.TabIndex = 6;
+            btnNuevoSocio.Text = "Agregar Socio";
+            btnNuevoSocio.UseVisualStyleBackColor = true;
+            btnNuevoSocio.Click += btnNuevoSocio_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(27, 90);
+            label2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(41, 58);
             label2.Name = "label2";
-            label2.Size = new Size(211, 25);
+            label2.Size = new Size(217, 25);
             label2.TabIndex = 8;
             label2.Text = "CARGAR NUEVO SOCIO";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(208, 142);
+            label3.Location = new Point(206, 114);
             label3.Name = "label3";
             label3.Size = new Size(0, 15);
             label3.TabIndex = 11;
             // 
-            // textBox2
+            // txtNombre
             // 
-            textBox2.Location = new Point(43, 143);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(184, 23);
-            textBox2.TabIndex = 10;
+            txtNombre.Location = new Point(41, 115);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(184, 23);
+            txtNombre.TabIndex = 10;
             // 
-            // label4
+            // lblNombre
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(43, 125);
-            label4.Name = "label4";
-            label4.Size = new Size(51, 15);
-            label4.TabIndex = 9;
-            label4.Text = "Nombre";
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(173, 97);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(51, 15);
+            lblNombre.TabIndex = 9;
+            lblNombre.Text = "Nombre";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(206, 191);
+            label5.Location = new Point(204, 163);
             label5.Name = "label5";
             label5.Size = new Size(0, 15);
             label5.TabIndex = 14;
             // 
-            // textBox3
+            // txtApellido
             // 
-            textBox3.Location = new Point(43, 191);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(184, 23);
-            textBox3.TabIndex = 13;
-            textBox3.TextChanged += textBox3_TextChanged;
+            txtApellido.Location = new Point(41, 163);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(184, 23);
+            txtApellido.TabIndex = 13;
+            txtApellido.TextChanged += textBox3_TextChanged;
             // 
-            // label6
+            // lblApellido
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(41, 174);
-            label6.Name = "label6";
-            label6.Size = new Size(27, 15);
-            label6.TabIndex = 12;
-            label6.Text = "DNI";
+            lblApellido.AutoSize = true;
+            lblApellido.Location = new Point(174, 145);
+            lblApellido.Name = "lblApellido";
+            lblApellido.Size = new Size(51, 15);
+            lblApellido.TabIndex = 12;
+            lblApellido.Text = "Apellido";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(204, 295);
+            label7.Location = new Point(202, 267);
             label7.Name = "label7";
             label7.Size = new Size(0, 15);
             label7.TabIndex = 20;
             // 
-            // textBox4
+            // txtTel
             // 
-            textBox4.Location = new Point(41, 295);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(184, 23);
-            textBox4.TabIndex = 19;
+            txtTel.Location = new Point(39, 267);
+            txtTel.Name = "txtTel";
+            txtTel.Size = new Size(184, 23);
+            txtTel.TabIndex = 19;
             // 
-            // label8
+            // lblDNI
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(39, 278);
-            label8.Name = "label8";
-            label8.Size = new Size(27, 15);
-            label8.TabIndex = 18;
-            label8.Text = "DNI";
+            lblDNI.AutoSize = true;
+            lblDNI.Location = new Point(195, 201);
+            lblDNI.Name = "lblDNI";
+            lblDNI.Size = new Size(27, 15);
+            lblDNI.TabIndex = 18;
+            lblDNI.Text = "DNI";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(206, 246);
+            label9.Location = new Point(204, 218);
             label9.Name = "label9";
             label9.Size = new Size(0, 15);
             label9.TabIndex = 17;
             // 
-            // textBox5
+            // txtDNI
             // 
-            textBox5.Location = new Point(41, 247);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(184, 23);
-            textBox5.TabIndex = 16;
+            txtDNI.Location = new Point(39, 219);
+            txtDNI.Name = "txtDNI";
+            txtDNI.Size = new Size(184, 23);
+            txtDNI.TabIndex = 16;
             // 
-            // label10
+            // lblTel
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(41, 229);
-            label10.Name = "label10";
-            label10.Size = new Size(52, 15);
-            label10.TabIndex = 15;
-            label10.Text = "Telefono";
+            lblTel.AutoSize = true;
+            lblTel.Location = new Point(173, 249);
+            lblTel.Name = "lblTel";
+            lblTel.Size = new Size(52, 15);
+            lblTel.TabIndex = 15;
+            lblTel.Text = "Telefono";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(394, 98);
+            label11.Location = new Point(78, 69);
             label11.Name = "label11";
             label11.Size = new Size(129, 15);
             label11.TabIndex = 21;
@@ -233,7 +239,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(323, 229);
+            label12.Location = new Point(23, 200);
             label12.Name = "label12";
             label12.Size = new Size(279, 15);
             label12.TabIndex = 22;
@@ -242,45 +248,71 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(27, 28);
+            label13.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(5, 9);
             label13.Name = "label13";
-            label13.Size = new Size(171, 25);
+            label13.Size = new Size(277, 40);
             label13.TabIndex = 23;
             label13.Text = "DASHBOARD CLUB";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Yellow;
+            label4.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ControlText;
+            label4.Location = new Point(7, 14);
+            label4.Name = "label4";
+            label4.Size = new Size(151, 20);
+            label4.TabIndex = 24;
+            label4.Text = "EN CONSTRUCCION";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.InactiveCaption;
+            panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(lblBuscarUsuario);
+            panel1.Controls.Add(label11);
+            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(dataGridView1);
+            panel1.Location = new Point(288, 28);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(500, 381);
+            panel1.TabIndex = 25;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(panel1);
             Controls.Add(label13);
-            Controls.Add(label12);
-            Controls.Add(label11);
             Controls.Add(label7);
-            Controls.Add(textBox4);
-            Controls.Add(label8);
+            Controls.Add(txtTel);
+            Controls.Add(lblDNI);
             Controls.Add(label9);
-            Controls.Add(textBox5);
-            Controls.Add(label10);
+            Controls.Add(txtDNI);
+            Controls.Add(lblTel);
             Controls.Add(label5);
-            Controls.Add(textBox3);
-            Controls.Add(label6);
+            Controls.Add(txtApellido);
+            Controls.Add(lblApellido);
             Controls.Add(label3);
-            Controls.Add(textBox2);
-            Controls.Add(label4);
+            Controls.Add(txtNombre);
+            Controls.Add(lblNombre);
             Controls.Add(label2);
-            Controls.Add(btnNuevoUser);
-            Controls.Add(label1);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
-            Controls.Add(lblBuscarUsuario);
-            Controls.Add(dataGridView1);
+            Controls.Add(btnNuevoSocio);
             Controls.Add(btnLogout);
             Name = "Form2";
             Text = "Form2";
             Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -293,22 +325,24 @@
         private TextBox textBox1;
         private Button button1;
         private Label label1;
-        private Button btnNuevoUser;
+        private Button btnNuevoSocio;
         private Label label2;
         private Label label3;
-        private TextBox textBox2;
-        private Label label4;
+        private TextBox txtNombre;
+        private Label lblNombre;
         private Label label5;
-        private TextBox textBox3;
-        private Label label6;
+        private TextBox txtApellido;
+        private Label lblApellido;
         private Label label7;
-        private TextBox textBox4;
-        private Label label8;
+        private TextBox txtTel;
+        private Label lblDNI;
         private Label label9;
-        private TextBox textBox5;
-        private Label label10;
+        private TextBox txtDNI;
+        private Label lblTel;
         private Label label11;
         private Label label12;
         private Label label13;
+        private Label label4;
+        private Panel panel1;
     }
 }

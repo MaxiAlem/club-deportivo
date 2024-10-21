@@ -57,5 +57,10 @@ namespace club_deportivo.Datos
         }
         return con;
     }
-}
+
+        internal static object GetInstancia()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

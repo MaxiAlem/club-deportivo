@@ -20,23 +20,25 @@ namespace club_deportivo
             {
                 // quiere decir que el resultado tiene 1 fila por lo que el usuario EXISTE
                 MessageBox.Show("Ingreso exitoso");
+                Form formulario = new Form2();
+                formulario.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Usuario y/o password incorrecto");
             }
         }
-//        private void btnLogin_Click(object sender, EventArgs e)
-//        {
-//            if (txtUser.Text == "admin" && txtPass.Text == "admin")
-//            { 
-//            Form formulario = new Form2();
-//            formulario.ShowDialog();
-//            }else
-//            {
-//                MessageBox.Show("Usuario o contraseña incorrectos", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//            }
-//        }
+        //        private void btnLogin_Click(object sender, EventArgs e)
+        //        {
+        //            if (txtUser.Text == "admin" && txtPass.Text == "admin")
+        //            { 
+        //            Form formulario = new Form2();
+        //            formulario.ShowDialog();
+        //            }else
+        //            {
+        //                MessageBox.Show("Usuario o contraseña incorrectos", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //        }
 
         private void txtUser_Enter(object sender, EventArgs e)
         {
@@ -70,6 +72,5 @@ namespace club_deportivo
                 txtPass.UseSystemPasswordChar = false;
             }
         }
-
     }
 }
