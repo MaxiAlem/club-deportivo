@@ -28,151 +28,121 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label7 = new Label();
-            textBox4 = new TextBox();
-            label8 = new Label();
-            label9 = new Label();
-            textBox5 = new TextBox();
-            label10 = new Label();
-            label5 = new Label();
-            textBox3 = new TextBox();
-            label6 = new Label();
-            label3 = new Label();
-            textBox2 = new TextBox();
-            label4 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            lbltitle = new Label();
+            txtDNI = new TextBox();
+            lblDNI = new Label();
+            txtTel = new TextBox();
+            lblTel = new Label();
+            txtApellido = new TextBox();
+            lblApellido = new Label();
+            txtNombre = new TextBox();
+            lblNombre = new Label();
+            btnGuardar = new Button();
+            btnRegistrarPago = new Button();
             label2 = new Label();
             button3 = new Button();
-            comboBox1 = new ComboBox();
+            cmbTPago = new ComboBox();
             label11 = new Label();
             label12 = new Label();
+            txtValorPago = new TextBox();
+            label4 = new Label();
+            label6 = new Label();
+            cmbPagode = new ComboBox();
+            txtFechaVencimiento = new TextBox();
+            lblFechaVencimiento = new Label();
             SuspendLayout();
             // 
-            // label1
+            // lbltitle
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(21, 26);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            lbltitle.AutoSize = true;
+            lbltitle.Location = new Point(9, 43);
+            lbltitle.Name = "lbltitle";
+            lbltitle.Size = new Size(115, 15);
+            lbltitle.TabIndex = 0;
+            lbltitle.Text = "DATOS PERSONALES";
             // 
-            // label7
+            // txtDNI
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(182, 225);
-            label7.Name = "label7";
-            label7.Size = new Size(0, 15);
-            label7.TabIndex = 32;
+            txtDNI.Location = new Point(64, 191);
+            txtDNI.Name = "txtDNI";
+            txtDNI.Size = new Size(147, 23);
+            txtDNI.TabIndex = 31;
             // 
-            // textBox4
+            // lblDNI
             // 
-            textBox4.Location = new Point(19, 225);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(184, 23);
-            textBox4.TabIndex = 31;
+            lblDNI.AutoSize = true;
+            lblDNI.Location = new Point(33, 199);
+            lblDNI.Name = "lblDNI";
+            lblDNI.Size = new Size(27, 15);
+            lblDNI.TabIndex = 30;
+            lblDNI.Text = "DNI";
             // 
-            // label8
+            // txtTel
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(17, 208);
-            label8.Name = "label8";
-            label8.Size = new Size(27, 15);
-            label8.TabIndex = 30;
-            label8.Text = "DNI";
+            txtTel.Location = new Point(64, 151);
+            txtTel.Name = "txtTel";
+            txtTel.Size = new Size(147, 23);
+            txtTel.TabIndex = 28;
             // 
-            // label9
+            // lblTel
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(184, 176);
-            label9.Name = "label9";
-            label9.Size = new Size(0, 15);
-            label9.TabIndex = 29;
+            lblTel.AutoSize = true;
+            lblTel.Location = new Point(8, 159);
+            lblTel.Name = "lblTel";
+            lblTel.Size = new Size(52, 15);
+            lblTel.TabIndex = 27;
+            lblTel.Text = "Telefono";
             // 
-            // textBox5
+            // txtApellido
             // 
-            textBox5.Location = new Point(19, 177);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(184, 23);
-            textBox5.TabIndex = 28;
+            txtApellido.Location = new Point(64, 113);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(147, 23);
+            txtApellido.TabIndex = 25;
             // 
-            // label10
+            // lblApellido
             // 
-            label10.AutoSize = true;
-            label10.Location = new Point(19, 159);
-            label10.Name = "label10";
-            label10.Size = new Size(52, 15);
-            label10.TabIndex = 27;
-            label10.Text = "Telefono";
+            lblApellido.AutoSize = true;
+            lblApellido.Location = new Point(9, 121);
+            lblApellido.Name = "lblApellido";
+            lblApellido.Size = new Size(51, 15);
+            lblApellido.TabIndex = 24;
+            lblApellido.Text = "Apellido";
             // 
-            // label5
+            // txtNombre
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(184, 121);
-            label5.Name = "label5";
-            label5.Size = new Size(0, 15);
-            label5.TabIndex = 26;
+            txtNombre.Location = new Point(64, 73);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(147, 23);
+            txtNombre.TabIndex = 22;
             // 
-            // textBox3
+            // lblNombre
             // 
-            textBox3.Location = new Point(21, 121);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(184, 23);
-            textBox3.TabIndex = 25;
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(9, 81);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(51, 15);
+            lblNombre.TabIndex = 21;
+            lblNombre.Text = "Nombre";
             // 
-            // label6
+            // btnGuardar
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(19, 104);
-            label6.Name = "label6";
-            label6.Size = new Size(27, 15);
-            label6.TabIndex = 24;
-            label6.Text = "DNI";
+            btnGuardar.Location = new Point(173, 267);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(186, 44);
+            btnGuardar.TabIndex = 33;
+            btnGuardar.Text = "Guardar Cambios";
+            btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // btnRegistrarPago
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(186, 72);
-            label3.Name = "label3";
-            label3.Size = new Size(0, 15);
-            label3.TabIndex = 23;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(21, 73);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(184, 23);
-            textBox2.TabIndex = 22;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(21, 55);
-            label4.Name = "label4";
-            label4.Size = new Size(51, 15);
-            label4.TabIndex = 21;
-            label4.Text = "Nombre";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(149, 267);
-            button1.Name = "button1";
-            button1.Size = new Size(186, 44);
-            button1.TabIndex = 33;
-            button1.Text = "Guardar Cambios";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(451, 147);
-            button2.Name = "button2";
-            button2.Size = new Size(186, 44);
-            button2.TabIndex = 34;
-            button2.Text = "Registar Pago";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnRegistrarPago.Location = new Point(451, 179);
+            btnRegistrarPago.Name = "btnRegistrarPago";
+            btnRegistrarPago.Size = new Size(186, 44);
+            btnRegistrarPago.TabIndex = 34;
+            btnRegistrarPago.Text = "Registar Pago";
+            btnRegistrarPago.UseVisualStyleBackColor = true;
+            btnRegistrarPago.Click += BtnRegistrarPago_Click;
             // 
             // label2
             // 
@@ -182,7 +152,6 @@
             label2.Size = new Size(68, 15);
             label2.TabIndex = 35;
             label2.Text = "Actividades";
-            label2.Click += label2_Click;
             // 
             // button3
             // 
@@ -193,13 +162,13 @@
             button3.Text = "Ver Carnet";
             button3.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cmbTPago
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(451, 104);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 37;
+            cmbTPago.FormattingEnabled = true;
+            cmbTPago.Location = new Point(516, 78);
+            cmbTPago.Name = "cmbTPago";
+            cmbTPago.Size = new Size(121, 23);
+            cmbTPago.TabIndex = 37;
             // 
             // label11
             // 
@@ -213,11 +182,61 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(451, 86);
+            label12.Location = new Point(434, 86);
             label12.Name = "label12";
             label12.Size = new Size(76, 15);
             label12.TabIndex = 39;
             label12.Text = "Tipo de pago";
+            // 
+            // txtValorPago
+            // 
+            txtValorPago.Location = new Point(516, 136);
+            txtValorPago.Name = "txtValorPago";
+            txtValorPago.Size = new Size(121, 23);
+            txtValorPago.TabIndex = 40;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(458, 144);
+            label4.Name = "label4";
+            label4.Size = new Size(52, 15);
+            label4.TabIndex = 41;
+            label4.Text = "Monto $";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(415, 104);
+            label6.Name = "label6";
+            label6.Size = new Size(95, 15);
+            label6.TabIndex = 42;
+            label6.Text = "En concepto de :";
+            // 
+            // cmbPagode
+            // 
+            cmbPagode.FormattingEnabled = true;
+            cmbPagode.Location = new Point(516, 104);
+            cmbPagode.Name = "cmbPagode";
+            cmbPagode.Size = new Size(121, 23);
+            cmbPagode.TabIndex = 43;
+            // 
+            // txtFechaVencimiento
+            // 
+            txtFechaVencimiento.Location = new Point(122, 226);
+            txtFechaVencimiento.Name = "txtFechaVencimiento";
+            txtFechaVencimiento.ReadOnly = true;
+            txtFechaVencimiento.Size = new Size(147, 23);
+            txtFechaVencimiento.TabIndex = 44;
+            // 
+            // lblFechaVencimiento
+            // 
+            lblFechaVencimiento.AutoSize = true;
+            lblFechaVencimiento.Location = new Point(9, 229);
+            lblFechaVencimiento.Name = "lblFechaVencimiento";
+            lblFechaVencimiento.Size = new Size(107, 15);
+            lblFechaVencimiento.TabIndex = 45;
+            lblFechaVencimiento.Text = "Fecha Vencimiento";
             // 
             // Form3
             // 
@@ -225,26 +244,28 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(680, 336);
+            Controls.Add(lblFechaVencimiento);
+            Controls.Add(txtFechaVencimiento);
+            Controls.Add(cmbPagode);
+            Controls.Add(label6);
+            Controls.Add(label4);
+            Controls.Add(txtValorPago);
             Controls.Add(label12);
             Controls.Add(label11);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbTPago);
             Controls.Add(button3);
             Controls.Add(label2);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(label7);
-            Controls.Add(textBox4);
-            Controls.Add(label8);
-            Controls.Add(label9);
-            Controls.Add(textBox5);
-            Controls.Add(label10);
-            Controls.Add(label5);
-            Controls.Add(textBox3);
-            Controls.Add(label6);
-            Controls.Add(label3);
-            Controls.Add(textBox2);
-            Controls.Add(label4);
-            Controls.Add(label1);
+            Controls.Add(btnRegistrarPago);
+            Controls.Add(btnGuardar);
+            Controls.Add(txtDNI);
+            Controls.Add(lblDNI);
+            Controls.Add(txtTel);
+            Controls.Add(lblTel);
+            Controls.Add(txtApellido);
+            Controls.Add(lblApellido);
+            Controls.Add(txtNombre);
+            Controls.Add(lblNombre);
+            Controls.Add(lbltitle);
             Name = "Form3";
             Text = "Form3";
             ResumeLayout(false);
@@ -253,25 +274,27 @@
 
         #endregion
 
-        private Label label1;
-        private Label label7;
-        private TextBox textBox4;
-        private Label label8;
-        private Label label9;
-        private TextBox textBox5;
-        private Label label10;
-        private Label label5;
-        private TextBox textBox3;
-        private Label label6;
-        private Label label3;
-        private TextBox textBox2;
-        private Label label4;
-        private Button button1;
-        private Button button2;
+        private Label lbltitle;
+        private TextBox txtDNI;
+        private Label lblDNI;
+        private TextBox txtTel;
+        private Label lblTel;
+        private TextBox txtApellido;
+        private Label lblApellido;
+        private TextBox txtNombre;
+        private Label lblNombre;
+        private Button btnGuardar;
+        private Button btnRegistrarPago;
         private Label label2;
         private Button button3;
-        private ComboBox comboBox1;
+        private ComboBox cmbTPago;
         private Label label11;
         private Label label12;
+        private TextBox txtValorPago;
+        private Label label4;
+        private Label label6;
+        private ComboBox cmbPagode;
+        private TextBox txtFechaVencimiento;
+        private Label lblFechaVencimiento;
     }
 }

@@ -15,7 +15,7 @@
             public Actividad(string nombre, int cupos)
             {
                 Nombre = nombre;
-                Cupos = cupos;
+                Cupos = cupos; 
             }
 
             // metodo para reservar un cupo

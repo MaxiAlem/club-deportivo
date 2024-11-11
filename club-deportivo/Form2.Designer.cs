@@ -31,8 +31,8 @@
             btnLogout = new Button();
             dataGridView1 = new DataGridView();
             lblBuscarUsuario = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            txtBuscar = new TextBox();
+            btnBuscar = new Button();
             label1 = new Label();
             btnNuevoSocio = new Button();
             label2 = new Label();
@@ -81,25 +81,26 @@
             lblBuscarUsuario.AutoSize = true;
             lblBuscarUsuario.Location = new Point(78, 38);
             lblBuscarUsuario.Name = "lblBuscarUsuario";
-            lblBuscarUsuario.Size = new Size(331, 15);
+            lblBuscarUsuario.Size = new Size(335, 15);
             lblBuscarUsuario.TabIndex = 2;
-            lblBuscarUsuario.Text = "Modificar un usuario, registrarle un pago o generar  un carnet";
+            lblBuscarUsuario.Text = "Modificar datos socio, registrarle un pago o generar  un carnet";
             // 
-            // textBox1
+            // txtBuscar
             // 
-            textBox1.Location = new Point(78, 87);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(250, 23);
-            textBox1.TabIndex = 3;
+            txtBuscar.Location = new Point(78, 87);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(250, 23);
+            txtBuscar.TabIndex = 3;
             // 
-            // button1
+            // btnBuscar
             // 
-            button1.Location = new Point(334, 69);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 41);
-            button1.TabIndex = 4;
-            button1.Text = "Buscar";
-            button1.UseVisualStyleBackColor = true;
+            btnBuscar.Location = new Point(334, 69);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 41);
+            btnBuscar.TabIndex = 4;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += BtnBuscar_Click;
             // 
             // label1
             // 
@@ -118,7 +119,7 @@
             btnNuevoSocio.TabIndex = 6;
             btnNuevoSocio.Text = "Agregar Socio";
             btnNuevoSocio.UseVisualStyleBackColor = true;
-            btnNuevoSocio.Click += btnNuevoSocio_Click;
+            btnNuevoSocio.Click += BtnNuevoSocio_Click;
             // 
             // label2
             // 
@@ -126,9 +127,9 @@
             label2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(41, 58);
             label2.Name = "label2";
-            label2.Size = new Size(217, 25);
+            label2.Size = new Size(156, 25);
             label2.TabIndex = 8;
-            label2.Text = "CARGAR NUEVO SOCIO";
+            label2.Text = "CARGAR NUEVO";
             // 
             // label3
             // 
@@ -241,9 +242,9 @@
             label12.AutoSize = true;
             label12.Location = new Point(23, 200);
             label12.Name = "label12";
-            label12.Size = new Size(279, 15);
+            label12.Size = new Size(229, 15);
             label12.TabIndex = 22;
-            label12.Text = "Socios con vencimiento de cuota en el corriente dia";
+            label12.Text = "Socios con vencimiento de cuota en el dia";
             // 
             // label13
             // 
@@ -275,8 +276,8 @@
             panel1.Controls.Add(label4);
             panel1.Controls.Add(lblBuscarUsuario);
             panel1.Controls.Add(label11);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(txtBuscar);
+            panel1.Controls.Add(btnBuscar);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(dataGridView1);
             panel1.Location = new Point(288, 28);
@@ -322,8 +323,8 @@
         private Button btnLogout;
         private DataGridView dataGridView1;
         private Label lblBuscarUsuario;
-        private TextBox textBox1;
-        private Button button1;
+        private TextBox txtBuscar;
+        private Button btnBuscar;
         private Label label1;
         private Button btnNuevoSocio;
         private Label label2;

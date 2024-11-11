@@ -1,32 +1,69 @@
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace club_deportivo
 {
-    internal class Socios
+    public class Socios
     {
-        private string nombre;
-        private string apellido;
-        private string dni;
-        private string telefono;
+        // Propiedades públicas para acceder desde otras clases
+        public int Id { get; set; }
+        public string Nombre { get; private set; }
+        public string Apellido { get; private set; }
+        public string DNI { get; private set; }
+        public string Telefono { get; private set; }
+        public bool EsSocio { get; private set; }
+        public bool CarnetEntregado { get; private set; }
+
+        public DateTime FechaInscripcion { get; set; }
+        public DateTime FechaVencimientoCuota { get; set; }
+
         private List<string> actividades = new List<string>();
-        // Constructor
-        public Socios( string nombre, string apellido,string dni, string telefono )
+
+        // Constructores
+ 
+
+        // Constructor Nuevos
+        public Socios(string nombre, string apellido, string dni, string telefono, bool esSocio)
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.dni = dni;
-            this.telefono = telefono;
+            Nombre = nombre;
+            Apellido = apellido;
+            DNI = dni;
+            Telefono = telefono;
+            EsSocio = esSocio;
+            FechaInscripcion = DateTime.Now; // se asigna la fecha actual al inscribir
+            FechaVencimientoCuota = DateTime.Now; // asume una primera cuota
         }
 
-        public string GetNombre()
+        // Constructor que requiere id(p instanciar al socio cuanod vuelve de la db
+        public Socios(int id, string nombre, string apellido, string dni, string telefono, bool esSocio,bool carnetEntregado, DateTime fechaInscripcion, DateTime fechaVencimientoCuota)
         {
-            return nombre;
+            Id = id;
+            Nombre = nombre;
+            Apellido = apellido;
+            DNI = dni;
+            Telefono = telefono;
+            EsSocio = esSocio;
+            CarnetEntregado = carnetEntregado;
+            FechaInscripcion = fechaInscripcion;
+            FechaVencimientoCuota = fechaVencimientoCuota;
+        }
+
+       
+        // Método para calcular la fecha de vencimiento según el tipo de pago
+        public void CalcularFechaVencimiento(string pagoDe)
+        {
+            switch (pagoDe)
+            {
+                case "Día":
+                    FechaVencimientoCuota = FechaVencimientoCuota.AddDays(1);
+                    break;
+                case "Mes":
+                    FechaVencimientoCuota = FechaVencimientoCuota.AddMonths(1);
+                    EsSocio = true;
+                    break;
+                default:
+                    throw new ArgumentException("Tipo de pago no reconocido" + pagoDe);
+            }
         }
 
         public bool TieneTopeDeActividades()
@@ -44,66 +81,10 @@ namespace club_deportivo
 
         public void MostrarInfo()
         {
-            Console.WriteLine($"Nombre: {nombre} {apellido}, DNI: {dni}, Teléfono: {telefono}");
+            Console.WriteLine($"Nombre: {Nombre} {Apellido}, DNI: {DNI}, Teléfono: {Telefono}");
             for (int i = 0; i < actividades.Count; i++)
             {
                 Console.WriteLine($"Actividad {i + 1}: {actividades[i]}");
-            }
-        }
-
-        // Metdo para insertar un nuevo socio
-        public bool InsertarSocio()
-        {
-            MySqlConnection sqlCon = null;
-
-            try
-            {
-                // Llama al CrearConexion
-                sqlCon = Conexion.GetInstancia().CrearConexion();
-
-                // verif si  conn = open antes de abrirla
-                if (sqlCon.State != ConnectionState.Open)
-                {
-                    sqlCon.Open();
-                }
-
-                // Comando para el procedimiento almacenado
-                MySqlCommand com = new MySqlCommand("InsertarSocio", sqlCon);
-                com.CommandType = CommandType.StoredProcedure;
-
-            
-                com.Parameters.Add("_Nombre", MySqlDbType.VarChar).Value = this.nombre;
-                com.Parameters.Add("_Apellido", MySqlDbType.VarChar).Value = this.apellido;
-                com.Parameters.Add("_DNI", MySqlDbType.VarChar).Value = this.dni;
-                com.Parameters.Add("_Telefono", MySqlDbType.VarChar).Value = this.telefono;
-
-                //fecha de alta 
-                com.Parameters.Add("@_FechaAlta", MySqlDbType.Date).Value = DateTime.Now;
-
-
-                // otros campos,
-                com.Parameters.Add("@_FechaVencimientoCuota", MySqlDbType.Date).Value = DBNull.Value; 
-                com.Parameters.Add("@_CarnetEntregado", MySqlDbType.Byte).Value = 0; // no entregado
-                com.Parameters.Add("@_Activo", MySqlDbType.Byte).Value = 1; // activo
-
-                com.ExecuteNonQuery();
-
-                return true; // Retornamos true si la operación fue exitosa
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message); // Mensaje de error
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);   
-
-                return false;
-            }
-            finally
-            {
-                // Aseguramos que sqlCon no sea null antes de intentar cerrarlo
-                if (sqlCon != null && sqlCon.State == ConnectionState.Open)
-                {
-                    sqlCon.Close();
-                }
             }
         }
     }
