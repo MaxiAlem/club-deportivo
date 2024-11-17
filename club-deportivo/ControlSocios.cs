@@ -287,6 +287,59 @@ namespace club_deportivo
 
             return listaSocios;
         }
+        public List<Socios> ObtenerSociosVencenHoy()
+        {
+
+            MySqlConnection sqlCon = null;
+            List<Socios> sociosList = new List<Socios>();
+
+            try
+            {
+                sqlCon = Conexion.GetInstancia().CrearConexion();
+
+                if (sqlCon.State != ConnectionState.Open)
+                {
+                    sqlCon.Open();
+                }
+
+                MySqlCommand com = new MySqlCommand("ObtenerSociosConCuotasVencidasHoy", sqlCon);
+                com.CommandType = CommandType.StoredProcedure;
+
+                using (MySqlDataReader reader = com.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        //metemos defualts para todo
+                        int id = Convert.ToInt32(reader["Id"]);
+                        string nombre = reader["Nombre"]?.ToString() ?? string.Empty;
+                        string apellido = reader["Apellido"]?.ToString() ?? string.Empty;
+                        string telefono = reader["Telefono"]?.ToString() ?? "No proporcionado";
+                        bool esSocio = reader["EsSocio"] != DBNull.Value && Convert.ToBoolean(reader["EsSocio"]);
+                        bool carnetEntregado = reader["CarnetEntregado"] != DBNull.Value && Convert.ToBoolean(reader["CarnetEntregado"]);
+                        DateTime fechaInscripcion = reader["FechaInscripcion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaInscripcion"]) : DateTime.MinValue;
+                        DateTime fechaVencimientoCuota = reader["FechaVencimientoCuota"] != DBNull.Value ? Convert.ToDateTime(reader["FechaVencimientoCuota"]) : DateTime.MinValue;
+                        string dni = reader["DNI"]?.ToString() ?? "N/A";
+
+
+                        // Crear y agregar cada socio a la lista
+                        sociosList.Add(new Socios(id, nombre, apellido, reader["DNI"]?.ToString() ?? string.Empty, telefono, esSocio, carnetEntregado, fechaInscripcion, fechaVencimientoCuota));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                sqlCon?.Close();
+            }
+
+            return sociosList;
+        }
+
+
 
     }
 }

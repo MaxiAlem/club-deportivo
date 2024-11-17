@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace club_deportivo
 
             cmbPagode.Items.Add("Día");
             cmbPagode.Items.Add("Mes");
-           
+
             // Seleccionar el primer valor por defecto (opcional)
             cmbPagode.SelectedIndex = 0;
         }
@@ -49,6 +50,7 @@ namespace club_deportivo
             txtApellido.Text = socio.Apellido;
             txtTel.Text = socio.Telefono;
             txtDNI.Text = socio.DNI;
+
 
 
             // Si la fecha de vencimiento es mínima, asignar la fecha de inscripción
@@ -86,7 +88,10 @@ namespace club_deportivo
                 ControlSocios controlSocios = new ControlSocios();
                 if (controlSocios.ModificarVencimientoYSocioPorId(socio.Id, pagoDe))
                 {
-                    MessageBox.Show("Pago registrado y socio actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Pago registrado y socio actualizado correctamente.Se imprimirá un comprobante del Pago", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ImprimirComprobante(nuevoPago);
+
                 }
                 else
                 {
@@ -98,5 +103,73 @@ namespace club_deportivo
                 MessageBox.Show("No se pudo registrar el pago.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnGenCarnet_click(object sender, EventArgs e)
+        {
+            if (socio == null || socio.Id <= 0)
+            {
+                MessageBox.Show("No se pudo obtener el ID del socio para generar el carnet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //  nueva instancia del formpasando el ID
+            Carnet carnet = new Carnet(socio.Id);
+            carnet.ShowDialog();
+        }
+
+        private void ImprimirComprobante(Pago pago)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += (sender, e) =>
+            {
+                Font font = new Font("Arial", 12);
+                float yPosition = 10;
+                float lineHeight = font.GetHeight(e.Graphics);
+
+                // Título del comprobante
+                e.Graphics.DrawString("Comprobante de Pago", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, 10, yPosition);
+                yPosition += lineHeight * 2;
+
+                // Información del socio
+                e.Graphics.DrawString($"Nombre: {socio.Nombre} {socio.Apellido}", font, Brushes.Black, 10, yPosition);
+                yPosition += lineHeight;
+                e.Graphics.DrawString($"DNI: {socio.DNI}", font, Brushes.Black, 10, yPosition);
+                yPosition += lineHeight;
+                e.Graphics.DrawString($"Teléfono: {socio.Telefono}", font, Brushes.Black, 10, yPosition);
+                yPosition += lineHeight * 2;
+
+                // Información del pago
+                e.Graphics.DrawString($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm:ss}", font, Brushes.Black, 10, yPosition);
+                yPosition += lineHeight;
+                e.Graphics.DrawString($"Tipo de Pago: {pago.TipoPago}", font, Brushes.Black, 10, yPosition);
+                yPosition += lineHeight;
+                e.Graphics.DrawString($"Concepto: {pago.PagoDe}", font, Brushes.Black, 10, yPosition);
+                yPosition += lineHeight;
+                e.Graphics.DrawString($"Monto: {pago.Monto} ARS", font, Brushes.Black, 10, yPosition);
+                yPosition += lineHeight * 2;
+
+                // Pie del comprobante
+                e.Graphics.DrawString("Gracias por su pago.", font, Brushes.Black, 10, yPosition);
+            };
+
+            try
+            {
+                PrintDialog printDialog = new PrintDialog
+                {
+                    Document = printDocument
+                };
+
+                // Mostrar diálogo de impresión
+                if (printDialog.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument.Print();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al imprimir el comprobante: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

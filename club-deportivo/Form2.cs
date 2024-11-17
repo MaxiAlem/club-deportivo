@@ -16,6 +16,7 @@ namespace club_deportivo
         public Form2()
         {
             InitializeComponent();
+            CargarSociosVencenHoy();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -47,26 +48,44 @@ namespace club_deportivo
                 MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            //VALIDACION
+            // 
+            string dni = txtDNI.Text;
+
+            // Crear una instancia de ControlSocios
+            ControlSocios control = new ControlSocios();
+
+            // usamos el BuscarSocio y s da !null es xq ya existe uno
+            Socios socioExistente = control.BuscarSocioPorDNI(dni);
+            if (socioExistente != null)
+            {
+                MessageBox.Show("El socio ya está registrado. Nombre: " + socioExistente.Nombre + " " + socioExistente.Apellido,
+                                "Registro Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             // Recoger los datos del formulario
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
-            string dni = txtDNI.Text;
+            // string dni = txtDNI.Text;  lo estamos capturanod mas arriba 
             string telefono = txtTel.Text;
             bool esSocio = false; // no es socio, todavia ;)
             bool carnetEntregado = false;
-          
-           //
-           // Crear una instancia del objeto Socios sin id
-           Socios nuevoSocio = new Socios(nombre, apellido, dni, telefono, esSocio)
-           {
-               FechaInscripcion = DateTime.Now,
-              // FechaVencimientoCuota = DateTime.Now.AddMonths(1) // En caso de que como requisito al registro tenga que pagar el primer mes
-           };
 
-         
+            //
+            // Crear una instancia del objeto Socios sin id
+            Socios nuevoSocio = new Socios(nombre, apellido, dni, telefono, esSocio)
+            {
+                FechaInscripcion = DateTime.Now,
+                // FechaVencimientoCuota = DateTime.Now.AddMonths(1) // En caso de que como requisito al registro tenga que pagar el primer mes
+            };
+
+
 
             // Crear una instancia de ControlSocios para manejar la operación de base de datos
-            ControlSocios control = new ControlSocios();
+            //ControlSocios control = new ControlSocios();
             bool exito = control.RegistrarSocio(nuevoSocio);
 
             // Mostrar el resultado de la operación
@@ -115,9 +134,35 @@ namespace club_deportivo
             }
             else
             {
-                MessageBox.Show("No se encontró un socio con el DNI: "+ dni);
+                MessageBox.Show("No se encontró un socio con el DNI: " + dni);
                 LimpiarCampos(); // Limpia los campos si no se encuentra el socio
             }
         }
+
+        private void CargarSociosVencenHoy()
+        {
+            ControlSocios controlSocios = new ControlSocios();
+            List<Socios> sociosVencidos = controlSocios.ObtenerSociosVencenHoy();
+
+            if (sociosVencidos.Count > 0)
+            {
+                dgvSociosVencidos.AutoGenerateColumns = true; // Habilita la generación automática de columnas
+                dgvSociosVencidos.DataSource = sociosVencidos.Select(s => new
+                {
+                    s.Nombre,
+                    s.Apellido,
+                    s.DNI,
+                    s.Telefono,
+                    FechaVencimiento = s.FechaVencimientoCuota.ToString("dd/MM/yyyy")
+                }).ToList();
+
+            }
+            else
+            {
+                MessageBox.Show("No hay socios con cuotas vencidas.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+       
     }
 }

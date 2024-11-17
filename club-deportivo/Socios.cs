@@ -17,7 +17,7 @@ namespace club_deportivo
         public DateTime FechaInscripcion { get; set; }
         public DateTime FechaVencimientoCuota { get; set; }
 
-        private List<string> actividades = new List<string>();
+        //private List<string> actividades = new List<string>();
 
         // Constructores
  
@@ -66,26 +66,26 @@ namespace club_deportivo
             }
         }
 
-        public bool TieneTopeDeActividades()
-        {
-            return actividades.Count >= 3;
-        }
+        //public bool TieneTopeDeActividades()
+        //{
+        //    return actividades.Count >= 3;
+        //}
 
-        public void InscribirActividad(string actividad)
-        {
-            if (actividades.Count < 3)
-            {
-                actividades.Add(actividad);
-            }
-        }
+        //public void InscribirActividad(string actividad)
+        //{
+        //    if (actividades.Count < 3)
+        //    {
+        //        actividades.Add(actividad);
+        //    }
+        //}
 
-        public void MostrarInfo()
-        {
-            Console.WriteLine($"Nombre: {Nombre} {Apellido}, DNI: {DNI}, Teléfono: {Telefono}");
-            for (int i = 0; i < actividades.Count; i++)
-            {
-                Console.WriteLine($"Actividad {i + 1}: {actividades[i]}");
-            }
-        }
+        //public void MostrarInfo()
+        //{
+        //    Console.WriteLine($"Nombre: {Nombre} {Apellido}, DNI: {DNI}, Teléfono: {Telefono}");
+        //    for (int i = 0; i < actividades.Count; i++)
+        //    {
+        //        Console.WriteLine($"Actividad {i + 1}: {actividades[i]}");
+        //    }
+        //}
     }
 }
