@@ -55,10 +55,10 @@ namespace club_deportivo
             switch (pagoDe)
             {
                 case "Día":
-                    FechaVencimientoCuota = FechaVencimientoCuota.AddDays(1);
+                    FechaVencimientoCuota = DateTime.Now.AddDays(1);
                     break;
                 case "Mes":
-                    FechaVencimientoCuota = FechaVencimientoCuota.AddMonths(1);
+                    FechaVencimientoCuota = DateTime.Now.AddMonths(1);
                     EsSocio = true;
                     break;
                 default:

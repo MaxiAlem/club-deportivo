@@ -52,7 +52,7 @@
             label12 = new Label();
             label13 = new Label();
             panel1 = new Panel();
-            checkBox1 = new CheckBox();
+            chkApto = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dgvSociosVencidos).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -275,15 +275,15 @@
             panel1.Size = new Size(500, 381);
             panel1.TabIndex = 25;
             // 
-            // checkBox1
+            // chkApto
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(39, 313);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(211, 19);
-            checkBox1.TabIndex = 26;
-            checkBox1.Text = "Apto fisico Entregado (Obligatorio)";
-            checkBox1.UseVisualStyleBackColor = true;
+            chkApto.AutoSize = true;
+            chkApto.Location = new Point(39, 313);
+            chkApto.Name = "chkApto";
+            chkApto.Size = new Size(211, 19);
+            chkApto.TabIndex = 26;
+            chkApto.Text = "Apto fisico Entregado (Obligatorio)";
+            chkApto.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
@@ -291,7 +291,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
-            Controls.Add(checkBox1);
+            Controls.Add(chkApto);
             Controls.Add(panel1);
             Controls.Add(label13);
             Controls.Add(label7);
@@ -345,6 +345,6 @@
         private Label label12;
         private Label label13;
         private Panel panel1;
-        private CheckBox checkBox1;
+        private CheckBox chkApto;
     }
 }

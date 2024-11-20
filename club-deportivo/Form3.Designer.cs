@@ -37,7 +37,6 @@
             lblApellido = new Label();
             txtNombre = new TextBox();
             lblNombre = new Label();
-            btnGuardar = new Button();
             btnRegistrarPago = new Button();
             button3 = new Button();
             cmbTPago = new ComboBox();
@@ -126,18 +125,9 @@
             lblNombre.TabIndex = 21;
             lblNombre.Text = "Nombre";
             // 
-            // btnGuardar
-            // 
-            btnGuardar.Location = new Point(120, 264);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(147, 44);
-            btnGuardar.TabIndex = 33;
-            btnGuardar.Text = "Guardar Cambios";
-            btnGuardar.UseVisualStyleBackColor = true;
-            // 
             // btnRegistrarPago
             // 
-            btnRegistrarPago.Location = new Point(414, 188);
+            btnRegistrarPago.Location = new Point(421, 264);
             btnRegistrarPago.Name = "btnRegistrarPago";
             btnRegistrarPago.Size = new Size(186, 44);
             btnRegistrarPago.TabIndex = 34;
@@ -147,7 +137,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(409, 264);
+            button3.Location = new Point(120, 264);
             button3.Name = "button3";
             button3.Size = new Size(172, 44);
             button3.TabIndex = 36;
@@ -158,7 +148,7 @@
             // cmbTPago
             // 
             cmbTPago.FormattingEnabled = true;
-            cmbTPago.Location = new Point(479, 75);
+            cmbTPago.Location = new Point(479, 135);
             cmbTPago.Name = "cmbTPago";
             cmbTPago.Size = new Size(121, 23);
             cmbTPago.TabIndex = 37;
@@ -167,7 +157,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(409, 35);
+            label11.Location = new Point(416, 88);
             label11.Name = "label11";
             label11.Size = new Size(191, 25);
             label11.TabIndex = 38;
@@ -176,7 +166,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(397, 83);
+            label12.Location = new Point(397, 138);
             label12.Name = "label12";
             label12.Size = new Size(76, 15);
             label12.TabIndex = 39;
@@ -184,7 +174,7 @@
             // 
             // txtValorPago
             // 
-            txtValorPago.Location = new Point(479, 133);
+            txtValorPago.Location = new Point(479, 196);
             txtValorPago.Name = "txtValorPago";
             txtValorPago.Size = new Size(121, 23);
             txtValorPago.TabIndex = 40;
@@ -192,7 +182,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(421, 141);
+            label4.Location = new Point(421, 204);
             label4.Name = "label4";
             label4.Size = new Size(52, 15);
             label4.TabIndex = 41;
@@ -201,7 +191,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(378, 101);
+            label6.Location = new Point(378, 172);
             label6.Name = "label6";
             label6.Size = new Size(95, 15);
             label6.TabIndex = 42;
@@ -210,7 +200,7 @@
             // cmbPagode
             // 
             cmbPagode.FormattingEnabled = true;
-            cmbPagode.Location = new Point(479, 101);
+            cmbPagode.Location = new Point(479, 164);
             cmbPagode.Name = "cmbPagode";
             cmbPagode.Size = new Size(121, 23);
             cmbPagode.TabIndex = 43;
@@ -235,7 +225,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(421, 159);
+            label1.Location = new Point(445, 231);
             label1.Name = "label1";
             label1.Size = new Size(162, 30);
             label1.TabIndex = 46;
@@ -259,7 +249,6 @@
             Controls.Add(cmbTPago);
             Controls.Add(button3);
             Controls.Add(btnRegistrarPago);
-            Controls.Add(btnGuardar);
             Controls.Add(txtDNI);
             Controls.Add(lblDNI);
             Controls.Add(txtTel);
@@ -286,7 +275,6 @@
         private Label lblApellido;
         private TextBox txtNombre;
         private Label lblNombre;
-        private Button btnGuardar;
         private Button btnRegistrarPago;
         private Button button3;
         private ComboBox cmbTPago;

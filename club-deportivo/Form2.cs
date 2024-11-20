@@ -48,6 +48,12 @@ namespace club_deportivo
                 MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!chkApto.Checked)
+            {
+                MessageBox.Show("Debe confirmar que el socio cumple con los requisitos marcando el checkbox.",
+                                "Validación Requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             //VALIDACION
             // 
